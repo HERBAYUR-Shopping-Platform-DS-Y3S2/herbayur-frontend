@@ -14,8 +14,9 @@ import ThankYou from "./modules/common/components/ThankYou";
 import About from "./modules/common/components/About";
 import Contact from "./modules/common/components/Contact";
 import SellerAdminSignIn from "./modules/users/components/SellerAdminSignIn";
-import SellerDashboard from './dashboards/components/seller/SellerDashboard';
-import ItemsDashboard from './dashboards/components/seller/ItemsDashboard';
+import SellerDashboard from './modules/dashboards/components/seller/SellerDashboard';
+import AdminDashboard from "./modules/dashboards/components/admin/AdminDashboard";
+import TrackOrder from "./modules/dashboards/components/admin/TrackOrder";
 
 const App = () => {
   return (
@@ -38,7 +39,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/seller-login" element={<SellerAdminSignIn />} />
           <Route path='/seller-dashboard' element={<SellerDashboard/>}/>
-          <Route path='/items-dashboard'element={<ItemsDashboard/>}/>
+          <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
+          <Route path='/track-order' element={<TrackOrder/>}/>
         </Routes>
       </div>
     </Router>
