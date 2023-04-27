@@ -14,12 +14,18 @@ import ThankYou from "./modules/common/components/ThankYou";
 import About from "./modules/common/components/About";
 import Contact from "./modules/common/components/Contact";
 import SellerAdminSignIn from "./modules/users/components/SellerAdminSignIn";
+<<<<<<< HEAD
 import SellerDashboard from "./dashboards/components/seller/SellerDashboard";
 import ItemsDashboard from "./dashboards/components/seller/ItemsDashboard";
 import OrderConfirmation from "./modules/orders/components/OrderConfirmation";
 import Register from "./modules/common/components/Register";
 import Order from "./modules/orders/components/Order";
 import ReviewForm from "./modules/review/components/ReviewForm";
+=======
+import SellerDashboard from './modules/dashboards/components/seller/SellerDashboard';
+import AdminDashboard from "./modules/dashboards/components/admin/AdminDashboard";
+import TrackOrder from "./modules/dashboards/components/admin/TrackOrder";
+>>>>>>> develop
 
 const App = () => {
   return (
@@ -42,11 +48,17 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/seller-login" element={<SellerAdminSignIn />} />
+<<<<<<< HEAD
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/items-dashboard" element={<ItemsDashboard />} />
           <Route path="/order-confirm" element={<OrderConfirmation />} />
           <Route path="/order" element={<Order />} />
           <Route path="/Review" element={<ReviewForm />} />
+=======
+          <Route path='/seller-dashboard' element={<SellerDashboard/>}/>
+          <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
+          <Route path='/track-order' element={<TrackOrder/>}/>
+>>>>>>> develop
         </Routes>
       </div>
     </Router>
