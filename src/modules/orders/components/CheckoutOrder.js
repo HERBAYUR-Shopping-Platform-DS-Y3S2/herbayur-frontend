@@ -3,6 +3,7 @@ import Header from '../../common/components/header'
 import BottomBanners from '../../common/components/BottomBanners'
 import Footer from '../../common/components/Footer'
 import { NavLink } from 'react-router-dom'
+import PaymentGateway from '../../payment-gateway/PaymentGateway'
 
 export default function CheckoutOrder() {
   return (
@@ -190,18 +191,11 @@ export default function CheckoutOrder() {
                 </div>
               </div>
               <div className="col-md-6">
-                <div className="row mb-5">
+                <div className="row mb-4">
                   <div className="col-md-12">
-                    <h2 className="h3 mb-3 text-black">Coupon Code</h2>
+                    <h2 className="h3 mb-3 text-black">Card Details</h2>
                     <div className="p-3 p-lg-5 border">
-                      <label for="c_code" className="text-black mb-3">Enter your coupon code if you have one</label>
-                      <div className="input-group w-75">
-                        <input type="text" className="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code"
-                          aria-describedby="button-addon2" />
-                        <div className="input-group-append">
-                          <button className="btn btn-primary btn-sm px-4" type="button" id="button-addon2">Apply</button>
-                        </div>
-                      </div>
+                      <PaymentGateway/>
                     </div>
                   </div>
                 </div>
@@ -233,7 +227,7 @@ export default function CheckoutOrder() {
                           </tr>
                         </tbody>
                       </table>
-                      <div className="border mb-3">
+                      {/* <div className="border mb-3">
                         <h3 className="h6 mb-0"><a className="d-block" data-toggle="collapse" href="#collapsebank" role="button"
                           aria-expanded="false" aria-controls="collapsebank" style={{textDecoration: 'none'}}>Direct Bank Transfer</a></h3>
                         <div className="collapse" id="collapsebank">
@@ -262,7 +256,7 @@ export default function CheckoutOrder() {
                               payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="form-group">
                         <button className="btn btn-primary btn-lg btn-block" onClick="window.location='thankyou.html'">Place
                           Order</button>
