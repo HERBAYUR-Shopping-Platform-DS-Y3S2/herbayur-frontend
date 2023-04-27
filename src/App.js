@@ -19,7 +19,6 @@ import OrderConfirmation from "./modules/orders/components/OrderConfirmation";
 import Register from "./modules/common/components/Register";
 import Order from "./modules/orders/components/Order";
 import ReviewForm from "./modules/review/components/ReviewForm";
-import SellerDashboard from "./modules/dashboards/components/seller/SellerDashboard";
 import AdminDashboard from "./modules/dashboards/components/admin/AdminDashboard";
 import TrackOrder from "./modules/dashboards/components/admin/TrackOrder";
 
@@ -48,8 +47,6 @@ const App = () => {
           <Route path="/order-confirm" element={<OrderConfirmation />} />
           <Route path="/order" element={<Order />} />
           <Route path="/Review" element={<ReviewForm />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/track-order" element={<TrackOrder />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/track-order" element={<TrackOrder />} />
         </Routes>
