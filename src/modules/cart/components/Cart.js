@@ -11,7 +11,7 @@ export default function Cart() {
 
   useEffect(() => {
     axios
-      .get("/api/cart/all")
+      .get("http://localhost:5001/api/cart/all")
       .then((response) => {
         setData(response.data);
       })
@@ -33,7 +33,6 @@ export default function Cart() {
   };
   calculatePrice();
 
-  
   return (
     <div>
       <div className="site-wrap">
@@ -80,7 +79,7 @@ export default function Cart() {
                             <h2 className="h5 text-black">{i.ItemName}</h2>
                           </td>
                           <td>{i.Itemprice}</td>
-                          
+
                           <td>$49.00</td>
                           <td>
                             <a

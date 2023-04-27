@@ -14,8 +14,12 @@ import ThankYou from "./modules/common/components/ThankYou";
 import About from "./modules/common/components/About";
 import Contact from "./modules/common/components/Contact";
 import SellerAdminSignIn from "./modules/users/components/SellerAdminSignIn";
-import SellerDashboard from './dashboards/components/seller/SellerDashboard';
-import ItemsDashboard from './dashboards/components/seller/ItemsDashboard';
+import SellerDashboard from "./dashboards/components/seller/SellerDashboard";
+import ItemsDashboard from "./dashboards/components/seller/ItemsDashboard";
+import OrderConfirmation from "./modules/orders/components/OrderConfirmation";
+import Register from "./modules/common/components/Register";
+import Order from "./modules/orders/components/Order";
+import ReviewForm from "./modules/review/components/ReviewForm";
 
 const App = () => {
   return (
@@ -35,10 +39,14 @@ const App = () => {
           <Route path="/checkout" element={<CheckoutOrder />} />
           <Route path="/thankyou" element={<ThankYou />} />
           <Route path="/about" element={<About />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/seller-login" element={<SellerAdminSignIn />} />
-          <Route path='/seller-dashboard' element={<SellerDashboard/>}/>
-          <Route path='/items-dashboard'element={<ItemsDashboard/>}/>
+          <Route path="/seller-dashboard" element={<SellerDashboard />} />
+          <Route path="/items-dashboard" element={<ItemsDashboard />} />
+          <Route path="/order-confirm" element={<OrderConfirmation />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/Review" element={<ReviewForm />} />
         </Routes>
       </div>
     </Router>
