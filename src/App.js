@@ -14,6 +14,7 @@ import ThankYou from "./modules/common/components/ThankYou";
 import About from "./modules/common/components/About";
 import Contact from "./modules/common/components/Contact";
 import SellerAdminSignIn from "./modules/users/components/SellerAdminSignIn";
+import SellerDashboard from "./modules/dashboards/components/seller/SellerDashboard";
 import OrderConfirmation from "./modules/orders/components/OrderConfirmation";
 import Register from "./modules/common/components/Register";
 import Order from "./modules/orders/components/Order";
@@ -47,6 +48,8 @@ const App = () => {
           <Route path="/order-confirm" element={<OrderConfirmation />} />
           <Route path="/order" element={<Order />} />
           <Route path="/Review" element={<ReviewForm />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/track-order" element={<TrackOrder />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/track-order" element={<TrackOrder />} />
         </Routes>
