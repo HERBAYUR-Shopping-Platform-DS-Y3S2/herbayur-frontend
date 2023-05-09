@@ -8,21 +8,26 @@ import axios from "axios";
 
 export default function Cart() {
   const [data, setData] = useState([]);
+  const [item_Name, setitem_Name] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:5001/api/cart/all")
       .then((response) => {
         setData(response.data);
+        console.log(typeof response);
+        let daf = response.data;
+
+        const itemNames = daf.map((item) => item.ItemName);
+        setitem_Name(itemNames);
+        console.log(item_Name);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
-
-  useEffect(() => {
-    console.log(data);
   }, [data]);
+
+  useEffect(() => {}, [data]);
 
   let sum = 0;
   const calculatePrice = () => {
@@ -32,6 +37,20 @@ export default function Cart() {
     }
   };
   calculatePrice();
+
+  const sendOrder = () => {
+    axios
+      .post("http://localhost:5004/api/orders/saveOrder", {
+        price: sum,
+        item_Name: item_Name,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -75,6 +94,7 @@ export default function Cart() {
                               className="img-fluid"
                             />
                           </td>
+                          <img src=""alt="" />
                           <td className="product-name">
                             <h2 className="h5 text-black">{i.ItemName}</h2>
                           </td>
@@ -162,7 +182,7 @@ export default function Cart() {
                       <div className="col-md-12">
                         <button
                           className="btn btn-primary btn-lg btn-block"
-                          onclick="window.location='checkout.html'"
+                          onclick={sendOrder}
                         >
                           Proceed To Checkout
                         </button>
