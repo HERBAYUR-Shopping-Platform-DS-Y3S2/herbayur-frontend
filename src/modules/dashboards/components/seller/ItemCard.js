@@ -3,26 +3,29 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
 
 export default function ItemCard() {
 
   const [items, setItems] = useState([])
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
-    fetch("http://localhost:5003/api/items")
-      .then(response => response.json())
-      .then(json => setItems(json))
-      .finally(() => {
-        setLoading(false)
-      })
-  }, [])
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5003/api/items");
+        setItems(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className='row row-cols-1 row-cols-md-4 g-2' style={{ display: "-webkit-inline-box", justifyContent: "space-around" }}>
       {items.map(item => (
-        <Card key={item.id} style={{ width: '16rem', marginRight: '35px' }}>
-          <div class='mt-2' style={{ display: 'flex', justifyContent: 'center' }}>
+        <Card key={item._id} style={{ width: '16rem', marginRight: '35px' }}>
+          <div className='mt-2' style={{ display: 'flex', justifyContent: 'center' }}>
             <Card.Img variant="top" src={item.image} style={{ height: "165px", width: "140px" }} />
           </div>
           <Card.Body>
