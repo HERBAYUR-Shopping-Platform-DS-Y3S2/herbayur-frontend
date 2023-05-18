@@ -90,18 +90,18 @@ function SetModal(props) {
                 <Form.Control type="text" disabled />
               </Form.Group>
             </div>
-            {items.map(item => (
+            {/* {items.map(item => ( */}
               <div className="col-12 p-0" style={{ display: 'flex' }}>
                 <Form.Group className="mb-3 col-10 pl-0" controlId="items">
                   <Form.Label>Items</Form.Label>
-                  <Form.Control type="text" value={item.name} disabled />
+                  <Form.Control type="text" disabled />
                 </Form.Group>
                 <Form.Group className="mb-3 col-2 pl-0" controlId="quantity">
                   <Form.Label>Quantity</Form.Label>
-                  <Form.Control type="text" value={item.quantity} disabled />
+                  <Form.Control type="text" disabled />
                 </Form.Group>
               </div>
-            ))};
+            {/* ))}; */}
             <Form.Group className="mb-3" controlId="totalPrice" style={{ display: "grid" }}>
               <Form.Label>Total Price</Form.Label>
               <Form.Control type="text" disabled />

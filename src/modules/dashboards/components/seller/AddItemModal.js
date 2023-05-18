@@ -2,7 +2,6 @@ import * as React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import ImageUpload from '../../../common/components/FileUpload';
 import { useRef } from 'react';
 import axios from 'axios';
 
@@ -25,16 +24,28 @@ export default function AddItemModal() {
 
 function SetModal(props) {
 
-  const [image, setImage] = React.useState('');
+  const [image, setImage] = React.useState([]);
   const [type, setType] = React.useState('');
   const [itemName, setItemName] = React.useState('');
   const [dose, setDose] = React.useState('');
   const [price, setPrice] = React.useState('');
   const [description, setDescription] = React.useState('');
 
+  const [viewImage, setViewImage] = React.useState('');
+
   const handleDropdownChange = (event) => {
     setType(event.target.value);
   };
+
+  const onImageChange = (e) => {
+    setImage([...e.target.files]);
+
+    if(e.target.files.length !== 0) {
+        let imageUrl = "";
+        imageUrl = URL.createObjectURL(e.target.files[0]);
+        setViewImage(imageUrl)
+    }
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -47,7 +58,7 @@ function SetModal(props) {
       description
     }
 
-    if (type.length === 0 || itemName.length === 0 || dose.length === 0 || price.length === 0, description.length === 0) {
+    if (type.length === 0 || itemName.length === 0 || dose.length === 0 || price.length === 0 || description.length === 0) {
 
     }
     else {
@@ -84,7 +95,9 @@ function SetModal(props) {
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="image">
             <Form.Label>Image</Form.Label>
-            <ImageUpload ref={ref} />
+            {/* <ImageUpload ref={ref} /> */}
+            <Form.Control type="file"  onChange={onImageChange} />
+            <img className='mt-2' src={viewImage} style={{ height: "165px", width: "140px" }}></img>
           </Form.Group>
           <Form.Group className="mb-3" controlId="type">
             <Form.Label>Type &nbsp;</Form.Label>
