@@ -19,9 +19,9 @@ export default function ItemCard() {
       })
   }, [])
   return (
-    <div className='row row-cols-1 row-cols-md-4 g-2' style={{ display: "flex", justifyContent: "space-around" }}>
+    <div className='row row-cols-1 row-cols-md-4 g-2' style={{ display: "-webkit-inline-box", justifyContent: "space-around" }}>
       {items.map(item => (
-        <Card key={item.id} style={{ width: '16rem', marginRight: '15px' }}>
+        <Card key={item.id} style={{ width: '16rem', marginRight: '35px' }}>
           <div class='mt-2' style={{ display: 'flex', justifyContent: 'center' }}>
             <Card.Img variant="top" src={item.image} style={{ height: "165px", width: "140px" }} />
           </div>
