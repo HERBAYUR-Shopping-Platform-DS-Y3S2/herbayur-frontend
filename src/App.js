@@ -29,6 +29,7 @@ const App = () => {
           {/* <Route exact path='/' />
           <Route path='/:id' />
           <Route path='/auth' element={<BasicAuth />} /> */}
+          <Route exact path="/" element={<Homepage />} />
           <Route exact path="/homepage" element={<Homepage />} />
           <Route element={<Header />} />
           <Route element={<BottomBanners />} />
