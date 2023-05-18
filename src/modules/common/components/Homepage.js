@@ -32,7 +32,7 @@ export default function Homepage() {
                   <a href="#" className="h-100" style={{ textDecoration: 'none' }}>
                     <h5>Free <br /> Shipping</h5>
                     <p>
-                    <strong>Enjoy free shipping on all orders and experience the convenience and affordability of shopping with us.</strong>
+                      <strong>Enjoy free shipping on all orders and experience the convenience and affordability of shopping with us.</strong>
                     </p>
                   </a>
                 </div>
