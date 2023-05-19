@@ -23,9 +23,12 @@ export default function OrderCard() {
     <div className='row row-cols-1 row-cols-md-4 g-2' style={{ display: "flex", justifyContent: "space-around" }}>
       {orders.map(order => (
         <div key={order._id} className="list-group mt-4" style={{ width: '-webkit-fill-available' }}>
-          <a href="#" className="list-group-item list-group-item-action">A second link item
-            <div style={{float:"right"}}>
-              <ViewOrder orderData={order}/>
+          <a href="#" className="list-group-item list-group-item-action">
+            Price : {order.totalPrice} &nbsp; &nbsp;
+            Date : {order.orderDate} &nbsp; &nbsp;
+            Time : {order.orderTime}
+            <div style={{ float: "right" }}>
+              <ViewOrder orderData={order} />
             </div>
             <hr /></a>
         </div>

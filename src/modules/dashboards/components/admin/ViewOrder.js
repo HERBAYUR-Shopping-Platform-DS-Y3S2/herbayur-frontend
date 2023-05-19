@@ -12,7 +12,7 @@ export default function ViewOrder(props) {
   return (
     <div>
       <Button variant="primary" onClick={() => setModalShow(true)}>
-        View
+        View Order
       </Button>
       <SetModal
         show={modalShow}
@@ -30,32 +30,32 @@ function SetModal(props) {
 
   const approveOrder = (event) => {
     event.preventDefault();
-      axios.post('http://localhost:5004/api/orders/').then(function (response) {
-        //success
-        alert(response);
-      }).catch(function (error) {
-        alert(error);
-      })
+    axios.post(`http://localhost:5004/api/orders/approve/${props.orderData._id}`).then(function (response) {
+      //success
+      alert(response);
+    }).catch(function (error) {
+      console.log(error);
+    })
   }
 
   const rejectOrder = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:5004/api/orders/').then(function (response) {
+    axios.post(`http://localhost:5004/api/orders/reject/${props.orderData._id}`).then(function (response) {
       //success
       alert(response);
     }).catch(function (error) {
-      alert(error);
+      console.log(error);
     })
   }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5004/api/orders/${props._id}`);
+        const response = await axios.get(`http://localhost:5004/api/orders/${props.orderData._id}`);
         setOrder(response.data);
         setItems(response.data.items)
       } catch (error) {
-        console.error('Error fetching data:', error);
+        alert(error)
       }
     };
     fetchData();
@@ -78,33 +78,35 @@ function SetModal(props) {
           <Form>
             <Form.Group className="mb-3" controlId="orderId">
               <Form.Label>Order ID &nbsp;</Form.Label>
-              <Form.Control type="text" disabled value={order.id} />
+              <Form.Control type="text" value={order._id} disabled />
             </Form.Group>
             <div className="col-12 p-0" style={{ display: 'flex' }}>
               <Form.Group className="mb-3 col-6 pl-0" controlId="orderDate">
                 <Form.Label>Order Date</Form.Label>
-                <Form.Control type="text" disabled />
+                <Form.Control type="text" value={order.orderDate} disabled />
               </Form.Group>
               <Form.Group className="mb-3 col-6 pl-0" controlId="orderTime">
                 <Form.Label>Order Time</Form.Label>
-                <Form.Control type="text" disabled />
+                <Form.Control type="text" value={order.orderTime} disabled />
               </Form.Group>
             </div>
-            {/* {items.map(item => ( */}
-              <div className="col-12 p-0" style={{ display: 'flex' }}>
-                <Form.Group className="mb-3 col-10 pl-0" controlId="items">
-                  <Form.Label>Items</Form.Label>
-                  <Form.Control type="text" disabled />
-                </Form.Group>
-                <Form.Group className="mb-3 col-2 pl-0" controlId="quantity">
-                  <Form.Label>Quantity</Form.Label>
-                  <Form.Control type="text" disabled />
-                </Form.Group>
-              </div>
-            {/* ))}; */}
+            <div className="col-12 p-0" style={{ display: 'flex' }}>
+              <Form.Group className="mb-3 col-10 pl-0" controlId="items">
+                <Form.Label>Items</Form.Label>
+                {items.map(item => (
+                  <Form.Control key={item.name} type="text" value={item.name} disabled style={{ marginBottom: '6px' }} />
+                ))};
+              </Form.Group>
+              <Form.Group className="mb-3 col-2 pl-0" controlId="">
+                <Form.Label>Quantity</Form.Label>
+                {items.map(item => (
+                  <Form.Control key={item.name} type="text" value={item.quantity} disabled style={{ marginBottom: '6px' }} />
+                ))};
+              </Form.Group>
+            </div>
             <Form.Group className="mb-3" controlId="totalPrice" style={{ display: "grid" }}>
               <Form.Label>Total Price</Form.Label>
-              <Form.Control type="text" disabled />
+              <Form.Control type="text" value={order.totalPrice} disabled />
             </Form.Group>
           </Form>
         </Modal.Body>
