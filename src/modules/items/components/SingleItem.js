@@ -9,24 +9,30 @@ export default function SingleItem() {
   console.log(id);
 
   useEffect(() => {
-    axios.get(`http://localhost:5003/api/items/${id}`).then((response) => {
-      console.log(response.data);
-      setData(response.data);
-    });
+    axios
+      .get(`http://localhost:5003/api/items/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error adding item to cart:", error.response.data);
+      });
   }, [id]);
 
   const { name, type, dose, sellerName, price, desc, status, image, _id } = data;
-
+    
+  const cartItem = {
+    oldid: _id,
+    ItemName: name,
+    Itemprice: price,
+    Displayimage: image,
+  };
 
 
   const addToCart = () => {
     axios
-      .post("http://localhost:5001/api/cart/send", {
-        oldid: _id,
-        ItemName: name,
-        Itemprice: price,
-        Displayimage: image
-      })
+      .post("http://localhost:5001/api/cart/send", cartItem)
       .then((response) => {
         console.log("Item added to cart:", response.data);
       })
