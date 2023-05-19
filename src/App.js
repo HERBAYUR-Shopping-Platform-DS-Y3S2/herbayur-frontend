@@ -20,6 +20,7 @@ import ReviewForm from "./modules/review/components/ReviewForm";
 import AdminDashboard from "./modules/dashboards/components/admin/AdminDashboard";
 import TrackOrder from "./modules/dashboards/components/admin/TrackOrder";
 import AddItem from "./modules/items/components/AddItem";
+import Login from "./modules/common/components/Login";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route element={<BottomBanners />} />
           <Route element={<Footer />} />
           <Route path="/store" element={<ItemStore />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/single-item/:id" element={<SingleItem />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckoutOrder />} />
