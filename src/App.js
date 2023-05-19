@@ -19,6 +19,7 @@ import Register from "./modules/common/components/Register";
 import ReviewForm from "./modules/review/components/ReviewForm";
 import AdminDashboard from "./modules/dashboards/components/admin/AdminDashboard";
 import TrackOrder from "./modules/dashboards/components/admin/TrackOrder";
+import AddItem from "./modules/items/components/AddItem";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/Review" element={<ReviewForm />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/add-item" element={<AddItem />} />
           <Route path="/track-order" element={<TrackOrder />} />
         </Routes>
       </div>

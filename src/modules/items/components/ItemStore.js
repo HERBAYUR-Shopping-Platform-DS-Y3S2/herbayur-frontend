@@ -3,8 +3,23 @@ import Header from '../../common/components/header'
 import BottomBanners from '../../common/components/BottomBanners'
 import Footer from '../../common/components/Footer'
 import { NavLink } from 'react-router-dom'
+import axios from  'axios'
+import { useEffect,useState } from 'react'
 
 export default function ItemStore() {
+ 
+const [items ,setItems] = useState([])  
+useEffect(()=>{
+axios.get("http://localhost:5003/api/items/").then((response)=>{
+
+  setItems(response.data)
+}).catch((error)=>{
+console.log(error)
+})
+},[])
+
+console.log(items)
+
   return (
     <div>
       <div className="site-wrap">
@@ -38,6 +53,7 @@ export default function ItemStore() {
                 </div>
               </div>
             </div>
+
             <div className="row">
               <div className="col-sm-6 col-lg-4 text-center item mb-4">
                 <span className="tag">Sale</span>
@@ -104,21 +120,7 @@ export default function ItemStore() {
                 <p className="price"><del>$89</del> &mdash; $38.00</p>
               </div>
             </div>
-            <div className="row mt-5">
-              <div className="col-md-12 text-center">
-                <div className="site-block-27">
-                  <ul>
-                    <li><a href="#" style={{textDecoration: 'none'}}>&lt;</a></li>
-                    <li className="active"><span>1</span></li>
-                    <li><a href="#" style={{textDecoration: 'none'}}>2</a></li>
-                    <li><a href="#" style={{textDecoration: 'none'}}>3</a></li>
-                    <li><a href="#" style={{textDecoration: 'none'}}>4</a></li>
-                    <li><a href="#" style={{textDecoration: 'none'}}>5</a></li>
-                    <li><a href="#" style={{textDecoration: 'none'}}>&gt;</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+         
           </div>
         </div>
         <BottomBanners />
