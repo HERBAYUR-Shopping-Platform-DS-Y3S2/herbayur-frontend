@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div>
       <div className="site-wrap">
-        <Header />
+        <Header /> 
         <div className="site-blocks-cover inner-page" style={{ backgroundImage: 'url("./assets/images/hero_1.jpg")' }}>
           <div className="container">
             <div className="row">
