@@ -38,13 +38,19 @@ function SetModal(props) {
   };
 
   const onImageChange = (e) => {
-    setImage([...e.target.files]);
+    // setImage([...e.target.files]);
 
-    if(e.target.files.length !== 0) {
-        let imageUrl = "";
-        imageUrl = URL.createObjectURL(e.target.files[0]);
-        setViewImage(imageUrl)
+    // if(e.target.files.length !== 0) {
+    //     let imageUrl = "";
+    //     imageUrl = URL.createObjectURL(e.target.files[0]);
+    //     setViewImage(imageUrl)
+    // }
+
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
     }
+    setImage(img)
   }
 
   function handleSubmit(event) {
@@ -96,8 +102,10 @@ function SetModal(props) {
           <Form.Group className="mb-3" controlId="image">
             <Form.Label>Image</Form.Label>
             {/* <ImageUpload ref={ref} /> */}
+            {/* <Form.Control type="file"  onChange={onImageChange} />
+            <img className='mt-2' src={viewImage} style={{ height: "165px", width: "140px" }}></img> */}
             <Form.Control type="file"  onChange={onImageChange} />
-            <img className='mt-2' src={viewImage} style={{ height: "165px", width: "140px" }}></img>
+            {image.preview && <img src={image.preview} width='140px' height='165px' />}
           </Form.Group>
           <Form.Group className="mb-3" controlId="type">
             <Form.Label>Type &nbsp;</Form.Label>
