@@ -14,12 +14,11 @@ import About from "./modules/common/components/About";
 import Contact from "./modules/common/components/Contact";
 import SellerAdminSignIn from "./modules/users/components/SellerAdminSignIn";
 import SellerDashboard from "./modules/dashboards/components/seller/SellerDashboard";
-import OrderConfirmation from "./modules/orders/components/OrderConfirmation";
 import Register from "./modules/common/components/Register";
-import Order from "./modules/orders/components/Order";
 import ReviewForm from "./modules/review/components/ReviewForm";
 import AdminDashboard from "./modules/dashboards/components/admin/AdminDashboard";
 import TrackOrder from "./modules/dashboards/components/admin/TrackOrder";
+import AddItem from "./modules/items/components/AddItem";
 
 const App = () => {
   return (
@@ -35,7 +34,7 @@ const App = () => {
           <Route element={<BottomBanners />} />
           <Route element={<Footer />} />
           <Route path="/store" element={<ItemStore />} />
-          <Route path="/single-item" element={<SingleItem />} />
+          <Route path="/single-item/:id" element={<SingleItem />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckoutOrder />} />
           <Route path="/thankyou" element={<ThankYou />} />
@@ -44,11 +43,10 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/seller-login" element={<SellerAdminSignIn />} />
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
-          <Route path="/order-confirm" element={<OrderConfirmation />} />
-          <Route path="/order" element={<Order />} />
           <Route path="/Review" element={<ReviewForm />} />
-          <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
-          <Route path='/track-order' element={<TrackOrder/>}/>
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/add-item" element={<AddItem />} />
+          <Route path="/track-order" element={<TrackOrder />} />
         </Routes>
       </div>
     </Router>
