@@ -20,6 +20,7 @@ import AdminDashboard from "./modules/dashboards/components/admin/AdminDashboard
 import TrackOrder from "./modules/dashboards/components/admin/TrackOrder";
 import AddItem from "./modules/items/components/AddItem";
 import Login from "./modules/common/components/Login";
+import SellerAdminSignUp from "./modules/users/components/SellerAdminSignUp";
 
 const App = () => {
   return (
@@ -43,7 +44,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/seller-login" element={<SellerAdminSignIn />} />
+          <Route path="/seller-admin-login" element={<SellerAdminSignIn />} />
+          <Route path="/seller-admin-register" element={<SellerAdminSignUp />} />
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/Review" element={<ReviewForm />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />

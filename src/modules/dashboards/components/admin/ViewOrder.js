@@ -30,22 +30,29 @@ function SetModal(props) {
 
   const approveOrder = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:5004/api/orders/approve/${props.orderData._id}`).then(function (response) {
-      //success
-      alert(response);
-    }).catch(function (error) {
-      console.log(error);
-    })
+    // axios.post(`http://localhost:5004/api/orders/approve/${props.orderData._id}`).then(function (response) {
+    //   //success
+    //   alert(response);
+    // }).catch(function (error) {
+    //   console.log(error);
+    // })
+    alert('Order is approved')
+    props.onHide();
+    order.orderStatus = "Approved"
+    window.location.replace("/admin-dashboard");
   }
 
   const rejectOrder = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:5004/api/orders/reject/${props.orderData._id}`).then(function (response) {
-      //success
-      alert(response);
-    }).catch(function (error) {
-      console.log(error);
-    })
+    // axios.post(`http://localhost:5004/api/orders/reject/${props.orderData._id}`).then(function (response) {
+    //   //success
+    //   alert(response);
+    // }).catch(function (error) {
+    //   console.log(error);
+    // })
+    alert('Order is rejected')
+    props.onHide()
+    window.location.replace("/admin-dashboard");
   }
 
   useEffect(() => {
@@ -54,6 +61,7 @@ function SetModal(props) {
         const response = await axios.get(`http://localhost:5004/api/orders/${props.orderData._id}`);
         setOrder(response.data);
         setItems(response.data.items)
+        console.log(order)
       } catch (error) {
         alert(error)
       }
