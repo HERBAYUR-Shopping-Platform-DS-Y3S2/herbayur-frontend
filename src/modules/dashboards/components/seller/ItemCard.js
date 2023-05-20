@@ -4,6 +4,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import UpdateItemModal from './UpdateItemModal';
+import DeleteItemModal from './DeleteItemModal'
 
 export default function ItemCard() {
 
@@ -38,8 +40,8 @@ export default function ItemCard() {
             <ListGroup.Item>{item.price}</ListGroup.Item>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#"><Button className='btn-primary'>Edit</Button></Card.Link>
-            <Card.Link href="#"><Button className='btn-secondary'>Delete</Button></Card.Link>
+            <Card.Link href="#"><UpdateItemModal itemData= {item}/></Card.Link>
+            <Card.Link href="#"><DeleteItemModal itemData= {item}/></Card.Link>
           </Card.Body>
         </Card>
       ))};
