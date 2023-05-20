@@ -26,7 +26,8 @@ export default function OrderCard() {
           <a href="#" className="list-group-item list-group-item-action">
             Price : {order.totalPrice} &nbsp; &nbsp;
             Date : {order.orderDate} &nbsp; &nbsp;
-            Time : {order.orderTime}
+            Time : {order.orderTime} &nbsp; &nbsp;
+            Status : {order.orderStatus}
             <div style={{ float: "right" }}>
               <ViewOrder orderData={order} />
             </div>
